@@ -31,8 +31,5 @@ def update_user_service(user_id, data):
 
     return {"message": "User updated", "user": users[user_id]}, 200
 
-def delete_user_service(user_id):
-    if user_id not in users:
-        return {"message": "User not found"}, 404
-    del users[user_id]
-    return {"message": "User deleted"}, 200
+def sum_numbers(a: float, b: float):
+    return a + b
