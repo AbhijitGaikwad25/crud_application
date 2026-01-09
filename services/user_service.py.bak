@@ -36,3 +36,9 @@ def delete_user_service(user_id):
         return {"message": "User not found"}, 404
     del users[user_id]
     return {"message": "User deleted"}, 200
+
+def is_even_odd_service(user_id):
+    user = users.get(user_id)
+    if not user:
+        return {"message": "User not found"}, 404
+    return {"user_id": user_id, "is_even": user_id % 2 == 0}, 200
