@@ -31,5 +31,25 @@ def update_user_service(user_id, data):
 
     return {"message": "User updated", "user": users[user_id]}, 200
 
-def sum_service(a, b):
-    return a + b
+def delete_user_service(user_id):
+    if user_id not in users:
+        return {"message": "User not found"}, 404
+    del users[user_id]
+    return {"message": "User deleted"}, 200
+
+def even_odd_service(user_id):
+    user = users.get(user_id)
+    if not user:
+        return {"message": "User not found"}, 404
+    return {"user_id": user_id, "is_even": user_id % 2 == 0}, 200
+
+def add_users_service(new_users):
+    for user in new_users:
+        user_id = user.get("id")
+        if user_id in users:
+            return {"message": f"User with id {user_id} already exists"}, 400
+        users[user_id] = {
+            "name": user.get("name"),
+            "email": user.get("email")
+        }
+    return {"message": "Users added successfully"}, 201
