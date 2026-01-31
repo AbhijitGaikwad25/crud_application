@@ -28,3 +28,5 @@ def update_user(user_id):
 @user_bp.route("/users/<int:user_id>", methods=["DELETE"])
 def delete_user(user_id):
     return delete_user_service(user_id)
+
+print('saurabh'
