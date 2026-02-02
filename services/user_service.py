@@ -2,7 +2,7 @@ from models.user_model import users
 
 def create_user_service(data):
     user_id = data.get("id")
-    if user_id in users:
+    if user_id in users
         return {"message": "User already exists"}, 400
 
     # users[user_id] = {
@@ -42,3 +42,6 @@ def even_odd_service(user_id):
     if not user:
         return {"message": "User not found"}, 404
     return {"user_id": user_id, "is_even": user_id % 2 == 0}, 200
+
+def hello_word_service():
+    return {"message": "Hello World"}, 200
