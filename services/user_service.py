@@ -42,10 +42,7 @@ def update_user_service(user_id, data):
     try:
         if user_id not in users:
             return {"message": "User not found"}, 404
-        if "name" in data:
-            users[user_id]["name"] = data["name"]
-        if "email" in data:
-            users[user_id]["email"] = data["email"]
+        users[user_id].update(data)
         return {"message": "User updated successfully", "user": users[user_id]}, 200
     except Exception as e:
-        return {"message ": "An error occurred: " + str(e)}, 500
+        return {"message": "An error occurred: " + str(e)}, 500
