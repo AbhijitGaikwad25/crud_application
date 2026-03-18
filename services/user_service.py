@@ -1,5 +1,4 @@
 from models.user_model import users
-from models.user_model import users
 
 def create_user_service(data):
     try:
@@ -43,10 +42,16 @@ def update_user_service(user_id, data):
     try:
         if user_id not in users:
             return {"message": "User not found"}, 404
-        if "name" in data:
-            users[user_id]["name"] = data["name"]
-        if "email" in data:
-            users[user_id]["email"] = data["email"]
+        users[user_id].update(data)
         return {"message": "User updated successfully", "user": users[user_id]}, 200
     except Exception as e:
         return {"message ": "An error occurred: " + str(e)}, 500
+
+def demo_service(user_id):
+    try:
+        user = users.get(user_id)
+        if not user:
+            return {"message": "User not found"}, 404
+        return {"message": "Demo service accessed for user", "user": user}, 200
+    except Exception as e:
+        return {"message": "An error occurred: " + str(e)}, 500
