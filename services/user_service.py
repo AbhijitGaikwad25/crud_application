@@ -50,3 +50,10 @@ def update_user_service(user_id, data):
         return {"message": "User updated successfully", "user": users[user_id]}, 200
     except Exception as e:
         return {"message ": "An error occurred: " + str(e)}, 500
+
+def demo_service_2(data):
+    try:
+        # Example implementation of demo_service_2
+        return {"message": "Demo service 2 executed successfully", "data": data}, 200
+    except Exception as e:
+        return {"message": "An error occurred in demo_service_2: " + str(e)}, 500
