@@ -4,8 +4,7 @@ from services.user_service import (
     get_user_service,
     get_all_users_service,
     update_user_service,
-    delete_user_service,
-    list_users_service
+    list_users_service,
 )
 
 user_bp = Blueprint("users", __name__)
