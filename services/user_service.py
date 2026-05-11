@@ -1,11 +1,11 @@
 from models.user_model import users
-from models.user_model import users
+
 
 def create_user_service(data):
     try:
         user_id = data.get("id")
         if user_id in users:
-            return {"message": "User already exists"}, 400
+            return {"message": "User already exist in Table"}, 400
 
         users[user_id] = {
             "name": data.get("name"),
@@ -50,3 +50,6 @@ def update_user_service(user_id, data):
         return {"message": "User updated successfully", "user": users[user_id]}, 200
     except Exception as e:
         return {"message ": "An error occurred: " + str(e)}, 500
+
+def hello_world_11():
+    return {"message": "Hello, World 11!"}, 200
