@@ -1,5 +1,4 @@
 from models.user_model import users
-from models.user_model import users
 
 def create_user_service(data):
     try:
@@ -38,6 +37,7 @@ def delete_user_service(user_id):
         return {"message": "User deleted successfully"}, 200
     except Exception as e:
         return {"message": "An error occurred: " + str(e)}, 500
+
 
 def update_user_service(user_id, data):
     try:
