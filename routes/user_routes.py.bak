@@ -4,7 +4,8 @@ from services.user_service import (
     get_user_service,
     get_all_users_service,
     update_user_service,
-    delete_user_service
+    delete_user_service,
+    list_users_service
 )
 
 user_bp = Blueprint("users", __name__)
@@ -28,3 +29,7 @@ def update_user(user_id):
 @user_bp.route("/users/<int:user_id>", methods=["DELETE"])
 def delete_user(user_id):
     return delete_user_service(user_id)
+
+@user_bp.route("/users/list", methods=["GET"])
+def list_users():
+    return list_users_service()
