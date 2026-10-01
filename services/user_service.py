@@ -1,5 +1,4 @@
 from models.user_model import users
-from models.user_model import users
 
 def create_user_service(data):
     try:
@@ -27,15 +26,6 @@ def get_user_service(user_id):
 def get_all_users_service():
     try:
         return users, 200
-    except Exception as e:
-        return {"message": "An error occurred: " + str(e)}, 500
-
-def delete_user_service(user_id):
-    try:
-        if user_id not in users:
-            return {"message": "User not found"}, 404
-        del users[user_id]
-        return {"message": "User deleted successfully"}, 200
     except Exception as e:
         return {"message": "An error occurred: " + str(e)}, 500
 
